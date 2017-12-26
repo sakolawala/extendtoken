@@ -1,0 +1,128 @@
+{
+	"variables": [],
+	"info": {
+		"name": "IdentityServer4",
+		"_postman_id": "36699849-e0cd-31c3-8057-144e813e0839",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/connect/token",
+			"request": {
+				"url": "http://localhost:5000/connect/token",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "client_id",
+							"value": "client",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Get Client credential store"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5001/identity",
+			"request": {
+				"url": "http://localhost:5001/identity",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjljM2U2MDJmMGU3ZWQ1NzU3NDg0YzQ3MDQyNmJkYTgyIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1MDEyMTk3MDcsImV4cCI6MTUwMTIyMzMwNywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJhcGkxIl0sImNsaWVudF9pZCI6ImNsaWVudCIsInNjb3BlIjpbImFwaTEiXX0.UgYhcTW0j82RG6kna7p0tZGcIT8YLrleqZ5T0H1eSTgwG1sl4Lyk7Qj6DztHWy_6-FynSg4-6b5GRkr1fL__q8hW-jzaGNQ6CMiLvtK5b3gz22hHCQvs2DVzYMd5sp1V-RNK94dvDDuJP3kHvZfvl124RIJSTFWA2jOKi-YozdVDhkwogLo8Lg5dSXCWj8ogzyDLXgrJKzujRuLrytTZr98918hSeSV7Utw3D8vcLT5txXUJMryXZReDSC0njpnw-3HNkPboGXM_EZyF3UC9JBIdfrrgHyEPzz1WX4iHho59o2dXBIIwNggbYPkWfkVGY7_ZuZ3ZKqKzI8h51vCOnA",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Resource Owner",
+			"request": {
+				"url": "http://localhost:5000/connect/token",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "client_id",
+							"value": "ro.client",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "alice",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "superpassword",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Get Client credential store"
+			},
+			"response": []
+		},
+		{
+			"name": "API1 Request",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "To get the value from API1"
+			},
+			"response": []
+		},
+		{
+			"name": "Extend Endpoint",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Extend Token for the service"
+			},
+			"response": []
+		}
+	]
+}
