@@ -4,10 +4,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Kiwi.Common.Logging;
 using icy2.idsvr.Utility;
+using icy2.idsvr.Validation.Interface;
 
 namespace icy2.idsvr.Validation
 {
-    public class InternalServiceClientValidator : IClientSecretValidator
+    public class InternalServiceClientValidator : IInternalClientValidator
     {
         private readonly IKiwiLogger _logger;
         private readonly IClientSecretValidator _clientValidator;

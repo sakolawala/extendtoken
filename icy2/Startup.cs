@@ -43,6 +43,7 @@ namespace icy2
                 .AddEndpoint<CustomExtendEndpoint>("extend", new Microsoft.AspNetCore.Http.PathString("/connect/extend"));
 
             services.AddMvc();
+            services.AddScoped<IInternalClientValidator, InternalServiceClientValidator>();
             services.AddScoped<IGrantTypeValidator, InternalServiceGrantTypeValidator>();
             services.AddScoped<IAdditonalAudienceValidator, AdditonalAudienceValidator>();
             services.AddScoped<IJWTTokenValidator, JWTTokenValidator>();

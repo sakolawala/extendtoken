@@ -19,22 +19,22 @@ namespace icy2.idsvr.Endpoints
     public class CustomExtendEndpoint : IEndpointHandler
     {
         private readonly IKiwiLogger _logger;
-        private readonly IClientSecretValidator _clientValidator;
+        private readonly IInternalClientValidator _clientValidator;
         private readonly IGrantTypeValidator _grantTypeValidator;
         private readonly IAdditonalAudienceValidator _additonalAudienceValidator;
         private readonly IJWTTokenValidator _jwtTokenValidator;
         private readonly IExtendedTokenGenerator _tokenGenerator;
 
 
-        public CustomExtendEndpoint(IKiwiLogger kiwiLogger, 
-                    IClientSecretValidator clientValidator,
+        public CustomExtendEndpoint(IKiwiLogger kiwiLogger,
+                    IInternalClientValidator clientValidator,
                     IGrantTypeValidator grantTypeValidator,
                     IAdditonalAudienceValidator additonalAudienceValidator, 
                     IJWTTokenValidator jwtTokenValidator,
                     IExtendedTokenGenerator tokenGenerator)
         {
             _logger = kiwiLogger;           
-            _clientValidator = new InternalServiceClientValidator(kiwiLogger, clientValidator);
+            _clientValidator = clientValidator;
             _grantTypeValidator = grantTypeValidator;
             _additonalAudienceValidator = additonalAudienceValidator;
             _jwtTokenValidator = jwtTokenValidator;
