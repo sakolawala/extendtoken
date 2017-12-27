@@ -24,13 +24,7 @@ namespace icy2.idsvr.Validation
         public async Task<ClientSecretValidationResult> ValidateAsync(HttpContext context)
         {
             _logger.LogDebug("Start InternalServiceClient Validation");
-            //First Check if the client exists
-            // validate client
-            var clientResult = await _clientValidator.ValidateAsync(context);
-
-            if (clientResult.IsError)
-                return clientResult;            
-
+                  
             var body = await context.Request.ReadFormAsync();
             if (body != null)
             {
@@ -44,7 +38,10 @@ namespace icy2.idsvr.Validation
                 }
                 else
                 {
-                    //Client is Internal Service, proceed with request
+                    // Check if the client exists and enabled in the database                    
+                    var clientResult = await _clientValidator.ValidateAsync(context);
+
+                    // Whatever is the result error or success, pass it back
                     return clientResult;
                 }                              
             }
