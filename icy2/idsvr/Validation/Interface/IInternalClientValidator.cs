@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace icy2.idsvr.Validation.Interface
 {
-    public class IInternalClientValidator
+    public interface IInternalClientValidator
     {
         //
         // Summary:
